@@ -12,8 +12,8 @@ boilInFahr=212
 
 
 echo "````````temperature converter````````"
-echo "for celsius to fahrenheit: enter 1"
-echo "for fahrenheit to celsius: enter 2"
+echo "for °celsius to °fahrenheit: enter 1"
+echo "for °fahrenheit to °celsius: enter 2"
 read choice
 
 function celsToFahrFn() {
@@ -36,25 +36,25 @@ function fahrToCelsFn() {
 
 case $choice in
 		$celsToFahr)
-				read -p "enter temperature in celsius: " cels
+				read -p "enter temperature in °celsius: " cels
 				if [[ $cels -ge $freezeInCels && $cels -le $boilInCels ]]
 				then
 						fahr="$( celsToFahrFn $cels )"
-						echo "$ $cels dCels is equal to $fahr dFahr "
+						echo "$ $cels°C is equal to $fahr°F "
 				else
-						echo "enter temperature between 0 and 100 degree celsius"
+						echo "enter temperature between 0°C and 100°C "
 				fi
 				;;
 
 
 		$fahrToCels)
-				read -p "enter temperature in fahrenheit: " fahr
+				read -p "enter temperature in °fahrenheit: " fahr
 				if [[ $fahr -ge $freezeInFahr && $fahr -le $boilInFahr ]]
 				then
 						cels="$( fahrToCelsFn $fahr )"
-						echo "$fahr dFahr is equal to $cels dCels "
+						echo "$fahr°F is equal to $cels°C "
 				else
-						echo "enter temperature between 32 and 212 degree celsius"
+						echo "enter temperature between 32°F and 212°F "
 				fi
 				;;
 
